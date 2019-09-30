@@ -103,6 +103,6 @@ if __name__ == '__main__':
                 tap(edit[0], edit[1])  # 打开编辑页面
 
                 # restartApp()
-                sleep(15)
+                # sleep(15)
                 count = 0
         sleep(1)
