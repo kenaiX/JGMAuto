@@ -98,7 +98,7 @@ if __name__ == '__main__':
 
             if count % 5 == 0:
                 tap(edit[0], edit[1])  # 打开编辑页面
-                tap(building6[0], building6[1])  # 点击升级建筑6
+                tap(building2[0], building2[1])  # 点击升级建筑2
                 tap(upgrade[0], upgrade[1])  # 打开编辑页面
                 tap(edit[0], edit[1])  # 打开编辑页面
 
