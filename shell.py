@@ -15,7 +15,7 @@ def execute_command(cmd):
 def swipe(fromX, fromY, toX, toY):
     execute_command(
         "adb shell input touchscreen swipe " + str(fromX) + " " + str(fromY) + " " + str(
-            toX) + " " + str(toY) + " ")
+            toX) + " " + str(toY) + " 300")
 
 
 def tap(fromX, fromY):
@@ -41,7 +41,7 @@ def calcDistance(x1, x2, y1, y2):
 if __name__ == '__main__':
     count = 0
     while True:
-        screen()
+        # screen()
 
         pil_image = Image.open("./jgm.png")
 
@@ -60,7 +60,7 @@ if __name__ == '__main__':
         # 4 5 6
         # 7 8 9
         building1 = [285, 691]
-        building2 = [570, 497]
+        building2 = [570, 557]
         building3 = [816, 428]
         building4 = [294, 935]
         building5 = [560, 817]
@@ -68,6 +68,9 @@ if __name__ == '__main__':
         building7 = [298, 1187]
         building8 = [543, 1063]
         building9 = [799, 924]
+
+        # 所有建筑的位置 1到9哪个是橙色，任意数量
+        allBuilding = [building1, building2, building3, building4, building5, building6, building7, building8, building9]
 
         # 橙色建筑的位置 1到9哪个是橙色，任意数量
         orageBuilding = [building5, building7]
@@ -91,16 +94,39 @@ if __name__ == '__main__':
                 for position in orageBuilding:
                     swipe(cargo3[0], cargo3[1], position[0], position[1])
         else:
-            swipe(building1[0], building1[1], building3[0], building3[1])
-            swipe(building4[0], building4[1], building6[0], building6[1])
-            swipe(building7[0], building7[1], building9[0], building9[1])
+            for position in allBuilding:
+                tap(position[0],position[1])
+
+            # swipe(building1[0], building1[1], building3[0], building3[1])
+            # swipe(building4[0], building4[1], building6[0], building6[1])
+            # swipe(building7[0], building7[1], building9[0], building9[1])
             count = count + 1
 
             if count % 5 == 0:
-                tap(edit[0], edit[1])  # 打开编辑页面
-                tap(building1[0], building1[1])  # 点击升级建筑1
-                tap(upgrade[0], upgrade[1])  # 打开编辑页面
-                tap(edit[0], edit[1])  # 打开编辑页面
+                # tap(edit[0], edit[1])  # 打开编辑页面
+                # tap(building1[0], building1[1])  # 点击升级建筑1
+                # tap(upgrade[0], upgrade[1])  # 打开编辑页面
+                # tap(edit[0], edit[1])  # 打开编辑页面
+
+
+                # 需要提取变量
+                tap(238, 188) # 点击政策中心
+
+                swipe(500, 800, 500, 1300) # 滑动列表到顶部
+
+                tap(318, 1388) # 点击要升级的政策
+
+                tap(588, 1188) # 点击升级
+
+                tap(35, 1838) # 点击归零
+                tap(35, 1838) # 点击归零
+                
+                tap(188, 1688) # 点击城市任务
+
+                tap(588, 1538) # 点击完成任务
+
+                tap(35, 1838) # 点击归零
+                tap(35, 1838) # 点击归零
 
                 # restartApp()
                 # sleep(15)
