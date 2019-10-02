@@ -29,7 +29,7 @@ def screen():
 
 
 def restartApp():
-    execute_command('adb shell am force-stop com.tencent.jgm')
+    # execute_command('adb shell am force-stop com.tencent.jgm')
     execute_command(
         'adb shell am start -a android.intent.action.MAIN -c android.intent.category.LAUNCHER -n com.tencent.jgm/com.tencent.jgm.MainActivity')
 
@@ -128,7 +128,7 @@ if __name__ == '__main__':
                 tap(35, 1838) # 点击归零
                 tap(35, 1838) # 点击归零
 
-                # restartApp()
+                restartApp()
                 # sleep(15)
                 count = 0
         sleep(1)
