@@ -39,7 +39,7 @@ def calcDistance(x1, x2, y1, y2):
 
 
 if __name__ == '__main__':
-    count = 0
+    count = -1 # 方便测试
     while True:
         # screen()
 
@@ -98,10 +98,11 @@ if __name__ == '__main__':
                     swipe(cargo3[0], cargo3[1], position[0], position[1])
         else:
 
-            for cargo in allCargo:
-                for position in orageBuilding:
-                    swipe(cargo[0], cargo[1], position[0], position[1])
+            # for cargo in allCargo:
+            #     for position in orageBuilding:
+            #         swipe(cargo[0], cargo[1], position[0], position[1])
 
+            # 收金币
             for position in allBuilding:
                 tap(position[0],position[1])
 
@@ -111,16 +112,16 @@ if __name__ == '__main__':
             count = count + 1
 
             if count % 5 == 0:
-                # tap(edit[0], edit[1])  # 打开编辑页面
-                # tap(building1[0], building1[1])  # 点击升级建筑1
-                # tap(upgrade[0], upgrade[1])  # 打开编辑页面
-                # tap(edit[0], edit[1])  # 打开编辑页面
+                tap(edit[0], edit[1])  # 打开编辑页面
+                tap(building1[0], building1[1])  # 点击升级建筑1
+                tap(upgrade[0], upgrade[1])  # 打开编辑页面
+                tap(edit[0], edit[1])  # 打开编辑页面
 
 
                 # 需要提取变量
                 tap(238, 188) # 点击政策中心
                 swipe(500, 800, 500, 1300) # 滑动列表到顶部
-                tap(318, 1388) # 点击要升级的政策
+                tap(318, 1588) # 点击要升级的政策
                 tap(588, 1188) # 点击升级
 
                 tap(35, 1838) # 点击归零
@@ -132,6 +133,10 @@ if __name__ == '__main__':
                 tap(35, 1838) # 点击归零
                 tap(35, 1838) # 点击归零
 
+                tap(588, 988) # 防止意外情况
+                tap(588, 1388) # 防止意外情况
+                tap(588, 1588) # 防止意外情况
+                
                 restartApp()
                 # sleep(15)
                 count = 0
