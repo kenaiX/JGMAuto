@@ -54,6 +54,9 @@ if __name__ == '__main__':
         cargo1 = [658, 1639]
         cargo2 = [816, 1564]
         cargo3 = [964, 1478]
+        
+        # 所有货物的位置
+        allCargo = [cargo1, cargo2, cargo3]
 
         # 建筑坐标，左上开始
         # 1 2 3
@@ -73,7 +76,7 @@ if __name__ == '__main__':
         allBuilding = [building1, building2, building3, building4, building5, building6, building7, building8, building9]
 
         # 橙色建筑的位置 1到9哪个是橙色，任意数量
-        orageBuilding = [building5, building7]
+        orageBuilding = [building1, building3, building6]
 
         edit = [958, 1155]  # 编辑建筑的按钮
         upgrade = [890, 1759]  # 右下角升级按钮
@@ -94,6 +97,11 @@ if __name__ == '__main__':
                 for position in orageBuilding:
                     swipe(cargo3[0], cargo3[1], position[0], position[1])
         else:
+
+            for cargo in allCargo:
+                for position in orageBuilding:
+                    swipe(cargo[0], cargo[1], position[0], position[1])
+
             for position in allBuilding:
                 tap(position[0],position[1])
 
@@ -127,4 +135,4 @@ if __name__ == '__main__':
                 restartApp()
                 # sleep(15)
                 count = 0
-        sleep(1)
+
