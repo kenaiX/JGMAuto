@@ -76,7 +76,7 @@ if __name__ == '__main__':
         allBuilding = [building1, building2, building3, building4, building5, building6, building7, building8, building9]
 
         # 橙色建筑的位置 1到9哪个是橙色，任意数量
-        orageBuilding = [building1, building3, building6]
+        orageBuilding = [building2, building4, building8]
 
         edit = [958, 1155]  # 编辑建筑的按钮
         upgrade = [890, 1759]  # 右下角升级按钮
@@ -98,13 +98,13 @@ if __name__ == '__main__':
                     swipe(cargo3[0], cargo3[1], position[0], position[1])
         else:
 
-            # for cargo in allCargo:
-            #     for position in orageBuilding:
-            #         swipe(cargo[0], cargo[1], position[0], position[1])
+            for cargo in allCargo:
+                for position in orageBuilding:
+                    swipe(cargo[0], cargo[1], position[0], position[1])
 
             # 收金币
-            for position in allBuilding:
-                tap(position[0],position[1])
+            # for position in allBuilding:
+            #     tap(position[0],position[1])
 
             # swipe(building1[0], building1[1], building3[0], building3[1])
             # swipe(building4[0], building4[1], building6[0], building6[1])
@@ -112,16 +112,17 @@ if __name__ == '__main__':
             count = count + 1
 
             if count % 5 == 0:
-                tap(edit[0], edit[1])  # 打开编辑页面
-                tap(building1[0], building1[1])  # 点击升级建筑1
-                tap(upgrade[0], upgrade[1])  # 打开编辑页面
-                tap(edit[0], edit[1])  # 打开编辑页面
+                # tap(edit[0], edit[1])  # 打开编辑页面
+                # tap(building3[0], building3[1])  # 点击升级建筑1
+                # tap(upgrade[0], upgrade[1])  # 打开编辑页面
+                # tap(edit[0], edit[1])  # 打开编辑页面
 
 
                 # 需要提取变量
                 tap(238, 188) # 点击政策中心
                 swipe(500, 800, 500, 1300) # 滑动列表到顶部
                 tap(318, 1588) # 点击要升级的政策
+                # tap(688, 1188) # 点击要升级的政策
                 tap(588, 1188) # 点击升级
 
                 tap(35, 1838) # 点击归零
