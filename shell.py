@@ -111,7 +111,7 @@ if __name__ == '__main__':
             # swipe(building7[0], building7[1], building9[0], building9[1])
             count = count + 1
 
-            if count % 5 == 0:
+            if count % 10 == 0:
                 # tap(edit[0], edit[1])  # 打开编辑页面
                 # tap(building3[0], building3[1])  # 点击升级建筑1
                 # tap(upgrade[0], upgrade[1])  # 打开编辑页面
