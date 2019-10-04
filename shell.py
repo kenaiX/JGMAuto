@@ -17,6 +17,10 @@ def swipe(fromX, fromY, toX, toY):
         "adb shell input touchscreen swipe " + str(fromX) + " " + str(fromY) + " " + str(
             toX) + " " + str(toY) + " 300")
 
+def swipeLow(fromX, fromY, toX, toY):
+    execute_command(
+        "adb shell input touchscreen swipe " + str(fromX) + " " + str(fromY) + " " + str(
+            toX) + " " + str(toY) + " 1000")
 
 def tap(fromX, fromY):
     execute_command(
@@ -64,7 +68,7 @@ if __name__ == '__main__':
         # 7 8 9
         building1 = [285, 691]
         building2 = [570, 557]
-        building3 = [816, 428]
+        building3 = [785, 410]
         building4 = [294, 935]
         building5 = [560, 817]
         building6 = [799, 674]
@@ -98,13 +102,13 @@ if __name__ == '__main__':
                     swipe(cargo3[0], cargo3[1], position[0], position[1])
         else:
 
-            for cargo in allCargo:
-                for position in orageBuilding:
-                    swipe(cargo[0], cargo[1], position[0], position[1])
+            # for cargo in allCargo:
+            #     for position in orageBuilding:
+            #        swipe(cargo[0], cargo[1], position[0], position[1])
 
             # 收金币
-            # for position in allBuilding:
-            #     tap(position[0],position[1])
+            for position in allBuilding:
+                tap(position[0],position[1])
 
             # swipe(building1[0], building1[1], building3[0], building3[1])
             # swipe(building4[0], building4[1], building6[0], building6[1])
@@ -112,27 +116,31 @@ if __name__ == '__main__':
             count = count + 1
 
             if count % 10 == 0:
-                # tap(edit[0], edit[1])  # 打开编辑页面
-                # tap(building3[0], building3[1])  # 点击升级建筑1
-                # tap(upgrade[0], upgrade[1])  # 打开编辑页面
-                # tap(edit[0], edit[1])  # 打开编辑页面
+                tap(edit[0], edit[1])  # 打开编辑页面
+                tap(building5[0], building5[1])  # 点击升级建筑
+                tap(upgrade[0], upgrade[1])  # 打开编辑页面
+                tap(edit[0], edit[1])  # 打开编辑页面
 
 
                 # 需要提取变量
                 tap(238, 188) # 点击政策中心
-                swipe(500, 800, 500, 1300) # 滑动列表到顶部
-                tap(318, 1588) # 点击要升级的政策
-                # tap(688, 1188) # 点击要升级的政策
+                swipe(500, 800, 500, 1800) # 滑动列表到顶部
+                
+                swipeLow(500, 800, 500, 300) # 向下滑动列表
+                tap(688, 1318) # 点击要升级的政策 -- 普惠金融
+
+                # tap(318, 1588) # 点击要升级的政策
+                # tap(688, 1388) # 点击要升级的政策
                 tap(588, 1188) # 点击升级
 
                 tap(35, 1838) # 点击归零
                 tap(35, 1838) # 点击归零
                 
-                tap(188, 1688) # 点击城市任务
-                tap(588, 1538) # 点击完成任务
-
-                tap(35, 1838) # 点击归零
-                tap(35, 1838) # 点击归零
+                # tap(188, 1688) # 点击城市任务
+                # tap(588, 1538) # 点击完成任务
+                
+                # tap(35, 1838) # 点击归零
+                # tap(35, 1838) # 点击归零
 
                 tap(588, 988) # 防止意外情况
                 tap(588, 1388) # 防止意外情况
